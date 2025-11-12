@@ -1,0 +1,53 @@
+{
+    "description": "Claude Code configuration with coding standards enforcement",
+    "permissions": {
+        "allow": [
+            "WebFetch(domain:docs.anthropic.com)",
+            "WebFetch(domain:github.com)",
+            "mcp__context7__resolve-library-id",
+            "mcp__context7__get-library-docs",
+            "mcp__sequential-thinking__sequentialthinking",
+            "Bash(git add:*)",
+            "Bash(git commit:*)",
+            "Bash(git push:*)",
+            "Bash(git pull:*)",
+            "Bash(git checkout:*)",
+            "Bash(git status:*)",
+            "Bash(git diff:*)",
+            "Bash(git log:*)",
+            "Bash(grep:*)",
+            "Bash(rg:*)",
+            "Bash(find:*)",
+            "Bash(ls:*)",
+            "Bash(cat:*)",
+            "Bash(npm:*)",
+            "Bash(npx:*)",
+            "Bash(python:*)",
+            "Bash(pip:*)"
+        ],
+        "deny": []
+    },
+    "enableAllProjectMcpServers": true,
+    "enabledMcpjsonServers": [
+        "context7",
+        "sequential-thinking"
+    ],
+    "hooks": {
+        "UserPromptSubmit": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "python .claude/hooks/task_hard_prep_hook.py"
+                    }
+                ]
+            }
+        ]
+    },
+    "environment": {
+        "ENFORCE_STYLE_RULES": "true"
+    },
+    "promptCaching": true,
+    "model": "claude-sonnet-4-5",
+    "includeCoAuthoredBy": false
+}

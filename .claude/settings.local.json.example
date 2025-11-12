@@ -1,0 +1,27 @@
+{
+  "description": "Local settings example - copy to settings.local.json and customize",
+  "note": "This file is for personal, machine-specific settings that should NOT be committed to git",
+
+  "permissions": {
+    "comment": "Override team permissions for your local workflow",
+    "bash": "allow",
+    "edit": "allow",
+    "write": "allow"
+  },
+
+  "environment": {
+    "comment": "Personal environment variables",
+    "MY_API_KEY": "your-api-key-here",
+    "CUSTOM_TOOL_PATH": "/path/to/your/tools"
+  },
+
+  "model": "claude-sonnet-4-5",
+
+  "custom": {
+    "personalPreferences": {
+      "autoFormat": true,
+      "verboseLogging": false,
+      "skipStyleChecksOnSave": false
+    }
+  }
+}
