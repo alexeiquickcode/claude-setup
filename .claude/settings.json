@@ -4,6 +4,10 @@
         "allow": [
             "WebFetch(domain:docs.anthropic.com)",
             "WebFetch(domain:github.com)",
+            "WebFetch(domain:terraform.io)",
+            "WebFetch(domain:registry.terraform.io)",
+            "WebSearch(allowed_domains:terraform.io)",
+            "WebSearch(allowed_domains:registry.terraform.io)",
             "mcp__context7__resolve-library-id",
             "mcp__context7__get-library-docs",
             "mcp__sequential-thinking__sequentialthinking",
@@ -23,7 +27,29 @@
             "Bash(npm:*)",
             "Bash(npx:*)",
             "Bash(python:*)",
-            "Bash(pip:*)"
+            "Bash(pip:*)",
+            "Bash(aws logs describe-*)",
+            "Bash(aws logs get-*)",
+            "Bash(aws logs filter-*)",
+            "Bash(aws logs tail:*)",
+            "Bash(aws ec2 describe-instances:*)",
+            "Bash(aws ec2 describe-instance-status:*)",
+            "Bash(aws ecs describe-*)",
+            "Bash(aws ecs list-*)",
+            "Bash(aws cloudwatch get-*)",
+            "Bash(aws cloudwatch describe-*)",
+            "Bash(aws lambda list-*)",
+            "Bash(aws lambda get-function:*)",
+            "Bash(aws lambda get-function-configuration:*)",
+            "Bash(aws codebuild batch-get-*)",
+            "Bash(aws codebuild list-*)",
+            "Bash(aws sagemaker describe-*)",
+            "Bash(aws sagemaker list-*)",
+            "Bash(aws sagemaker get-*)",
+            "Bash(aws mwaa get-environment:*)",
+            "Bash(aws mwaa list-environments:*)",
+            "Bash(aws elbv2 describe-*)",
+            "Bash(aws elbv2 get-*)"
         ],
         "deny": []
     },
@@ -35,12 +61,7 @@
     "hooks": {
         "UserPromptSubmit": [
             {
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "python .claude/hooks/task_hard_prep_hook.py"
-                    }
-                ]
+                "hooks": []
             }
         ]
     },
@@ -48,6 +69,6 @@
         "ENFORCE_STYLE_RULES": "true"
     },
     "promptCaching": true,
-    "model": "claude-sonnet-4-5",
+    "model": "claude-opus-4-5",
     "includeCoAuthoredBy": false
 }
