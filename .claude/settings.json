@@ -38,9 +38,14 @@
             "Bash(aws mwaa get-environment:*)",
             "Bash(aws mwaa list-environments:*)",
             "Bash(aws elbv2 describe-:*)",
-            "Bash(aws elbv2 get-:*)"
+            "Bash(aws elbv2 get-:*)",
+            "Bash(tree:*)"
         ],
-        "deny": []
+        "deny": [
+            "Bash(git push:*)",
+            "Bash(git pull:*)",
+            "Bash(terraform apply:*)"
+        ]
     },
     "enableAllProjectMcpServers": true,
     "enabledMcpjsonServers": [
